@@ -5,6 +5,7 @@ import grainImage from '@/assets/images/grain.jpg';
 import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
 import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
 import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import { Card } from '@/components/Card';
 
 const portfolioProjects = [
   {
@@ -60,15 +61,12 @@ export const ProjectsSection = () => {
         <p className="text-center md:text-lg lg:text-xl max-w-md mx-auto text-white/60 mt-4">
           See how Tnent Store transformed the<br />E-commerce game
         </p>
-        <div className="flex flex-col mt-10 md:mt-20 gap-20">
-          {portfolioProjects.map((project, index) => (
-            <div key={index} className="bg-gray-800 rounded-3xl relative z-0 after:z-10 overflow-hidden after:content-[''] after:absolute after:inset-0 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 pl-8 pr-8 pt-8 md:pt-12 md:px-10 after:pointer-events-none lg:pt-16 lg:px-20">
-              <div 
-                className="absolute inset-0 -z-10 opacity-5" 
-                style={{
-                  backgroundImage: `url(${grainImage.src})`,
-                }}
-              />
+        <div className="flex flex-col mt-10 md:mt-20 gap-20 ">
+          {portfolioProjects.map((project) => (
+            <Card
+              key={project.title}
+              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:pt-16 lg:px-20 sticky top-0"
+              >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">
                   <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
@@ -95,7 +93,7 @@ export const ProjectsSection = () => {
                   />
                 </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </div>
